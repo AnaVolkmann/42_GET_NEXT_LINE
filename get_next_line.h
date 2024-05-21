@@ -15,7 +15,15 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <sys/types.h>
-# include <sys/uio.h>
+
+# ifndef BUFFER_SIZE
+#  define  BUFFER_SIZE 1000
+#endif
+
+size_t  ft_strlen(char *s);
+char *ft_getline(char *laststr);
+char *ft_strchr(char *s, int c);
+char *ft_new_left_str(char *laststr);
+char *ft_strjoin(char *laststr, char *buf);
 
 #endif

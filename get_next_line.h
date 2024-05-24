@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:03:21 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/05/17 11:07:51 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:32:49 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-#  define  BUFFER_SIZE 1000
-#endif
+#  define BUFFER_SIZE 1000
+# endif
 
-size_t  ft_strlen(char *s);
-char *ft_getline(char *laststr);
-char *ft_strchr(char *s, int c);
-char *ft_new_left_str(char *laststr);
-char *ft_strjoin(char *laststr, char *buf);
+size_t	ft_strlen(char *s);
+char	*ft_getline(char *laststr);
+char	*ft_strchr(char *s, int c);
+char	*ft_new_left_str(char *laststr);
+char	*ft_strjoin(char *laststr, char *buf);
+char	*ft_read_left_str(int fd, char *laststr);
+char	*get_next_line(int fd);
 
 #endif

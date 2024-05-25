@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 19:23:22 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/05/25 20:17:21 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:41:21 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 32
 # endif
 
 # include <unistd.h>

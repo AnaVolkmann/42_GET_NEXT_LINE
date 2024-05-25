@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 20:46:55 by anavolkmann       #+#    #+#             */
-/*   Updated: 2024/05/24 20:27:46 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/05/25 19:28:35 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ static char	*ft_getline(char *laststr)
 		line[i] = laststr[i];
 		i++;
 	}
+	if (laststr[i] == '\n')
+		line[i++] = '\n';
 	line[i] = '\0';
 	return (line);
 }
@@ -86,25 +88,25 @@ outras execucoes da GNL
    original, MENOS a linha extraida */
 static char	*ft_new_left_str(char *laststr)
 {
-	int		i;
-	int		j;
 	char	*str;
+	int		len;
+	int		i;
 
-	i = 0;
-	if (!laststr[i])
+	if (!*laststr)
 	{
 		free(laststr);
 		return (NULL);
 	}
-	while (laststr[i] && laststr[i] != '\n')
-		i++;
-	str = malloc(sizeof(char) * (ft_strlen(laststr) - i + 1));
+	len = 0;
+	while (laststr[len] && laststr[len] != '\n')
+		len++;
+	str = malloc(sizeof(char) * (ft_strlen(laststr) - len + 1));
 	if (!str)
 		return (NULL);
-	j = 0;
-	while (laststr[i])
-		str[j++] = laststr[++i];
-	str[j] = '\0';
+	i = 0;
+	while (laststr[len])
+		str[i++] = laststr[++len];
+	str[i] = '\0';
 	free(laststr);
 	return (str);
 }
@@ -130,21 +132,42 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
- 
-#include <stdio.h>
-#include <fcntl.h>
+/* #include<stdio.h>
+int	main(void)
+{
+	int		fd;
+	char	*str;
 
+	fd = open("test.txt", O_RDONLY);
+	str = get_next_line(fd);
+	if (fd == -1)
+	{
+		printf("Error\n");
+		return (0);
+	}
+	printf("Your fd file is %d\n", fd);
+	while (str != NULL)
+	{
+		printf("%s", str);
+		free(str);
+		str = get_next_line(fd);
+	}
+	printf("Total of lines on file: %s", str);
+	close(fd);
+	return (0);
+}#include <stdio.h>
+#include <fcntl.h>
 int main()
 {
 	char *a;
 	int i = 0;
-	int fd = open("test1.txt", O_RDONLY);
+	int fd = open("test.txt", O_RDONLY);
 	
 	while (a)
 	{
 		a = get_next_line(fd);
-		printf(" %i -> %s\n", i, a);
+		printf(" %i -> %s", i, a);
 		free(a);
 		i++;
 	}
-}
+} */
